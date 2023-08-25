@@ -79,6 +79,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    disabledModules = [ "services/networking/dae.nix" ];
     environment.systemPackages = [ cfg.package ];
     systemd.packages = [ cfg.package ];
     networking = lib.mkIf cfg.openFirewall.enable {
